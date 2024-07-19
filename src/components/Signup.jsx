@@ -14,7 +14,7 @@ function Signup() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const apiUrl = import.meta.env.VITE_API_URL;
   const onSubmit = async (data) => {
     const userInfo = {
       fullname: data.fullname,
@@ -23,7 +23,7 @@ function Signup() {
     };
     console.log(userInfo);
     await axios
-      .post("http://localhost:4000/user/signup", userInfo)
+      .post(`${apiUrl}/user/signup`, userInfo)
       .then((res) => {
         console.log(res.data);
         if (res.data) {
