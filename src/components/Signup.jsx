@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 function Signup() {
   const location = useLocation();
   const navigate = useNavigate();
+  console.log("hey",apiUrl);
   const from = location.state?.from?.pathname || "http://localhost:4000/";
   const {
     register,
@@ -15,6 +16,7 @@ function Signup() {
     formState: { errors },
   } = useForm();
   const apiUrl = import.meta.env.VITE_API_URL;
+
   const onSubmit = async (data) => {
     const userInfo = {
       fullname: data.fullname,
